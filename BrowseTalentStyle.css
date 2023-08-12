@@ -1,0 +1,64 @@
+input[type=radio], input[type=checkbox]{
+    transform: scale(2);
+    margin-right:2rem ;
+}
+  
+.browse-form{
+    background-color: #08151a;
+    color: #CAD4DD;
+    padding-bottom: 2rem;
+}
+.browse-form-box{
+  margin-top: 2%;
+  font-size:40px ;
+  margin-left: 3%;
+  text-decoration: bold;
+}
+.browse-form-child{
+    font-size: 20px;
+    margin-left: 5%;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    text-decoration: bold;
+}
+.browse-form-options{
+  font-size: 20px;
+  margin-left: 2%;
+  padding-top: 3rem;
+  /* padding-bottom: 3rem; */
+  text-decoration: none;
+}
+.browse-bt1{
+    /* font-size: 15px;
+    border-radius: 20px;
+    background-color:#265769;
+    align-items: center;
+    justify-items: center;
+    width: 15%;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    /* color: white; */
+    /* font-weight: 400; */
+    /* font-size: 1.2rem; */
+    /* margin-top: 10px; */
+    /* width:50%; */
+    /* align-items: center;  */
+    /* margin-right:2%; 
+    margin-bottom:40px;
+    outline:none;
+    margin-left: 6rem; */
+    align-items: center;
+}
+.browse-b1:hover
+{
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 3px 3px 6px #38373785;
+}
+
+@media screen and (max-width: 1024px) {
+    .browse-form-box{
+        margin-top: 10%;
+        font-size: 70px;
+    }
+}

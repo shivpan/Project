@@ -1,53 +1,38 @@
-// const mongoose = require("mongoose");
+import React, { Component } from "react";
 
-// const UserDetailsScehma = new mongoose.Schema(
-//   {
-//     // _id: String,
-//     fname: String,
-//     lname: String,
-//     email: { type: String, unique: true },
-//     password: String,
-//     contact: Number,
-//     city: String,
-//     headline: String,
-//     description: String,
-//     branch: String,
-//     cYear: String,
-//     //cgpa: float,
-//     clubs: String,
-//     KTs: Number,
-//   },
-//   {
-//     collection: "UserInfo",
-//   }
-// );
-
-// mongoose.model("UserInfo", UserDetailsScehma);
-
-
-const mongoose = require("mongoose");
-
-const UserDetailsScehma = new mongoose.Schema(
-  {
-    fname: String,
-    lname: String,
-    email: { type: String, unique: true },
-    password: String,
-    contact: Number,
-    city: String,
-    headline: String,
-    domain:String,
-    description: String,
-    branch: String,
-    year: String,
-    cgpa: String,
-    clubs: String,
-    kt: Number,
-    skills:String,
-  },
-  {
-    collection: "UserInfo",
+export default class UserDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userData: "",
+    };
   }
-);
-
-mongoose.model("UserInfo", UserDetailsScehma);
+  componentDidMount() {
+    fetch("http://localhost:5000/userData", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      }, 
+      body: JSON.stringify({
+        token: window.localStorage.getItem("token"),
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userData");
+        this.setState({ userData: data.data });
+      });
+  }
+  render() {
+    return (
+      <div>
+        Name<h1>{this.state.userData.fname} {this.state.userData.lname}</h1>
+        Email <h1>{this.state.userData.email}</h1>
+        Contact <h1>{this.state.userData.contact}</h1>
+      </div>
+    );
+  }
+}
